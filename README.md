@@ -1,12 +1,94 @@
-# React + Vite
+# Vite React Application
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This project is a Vite-powered React application designed for fast development and optimized production builds.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- 🚀 Lightning-fast development with Vite
+- ⚛️ React with hooks support
+- 🎨 Tailwind CSS for styling (if used)
+- 🔧 ESLint and Prettier for code quality
+- 📦 Optimized production build
 
-## Expanding the ESLint configuration
+## Installation
 
-If you are developing a production application, we recommend using TypeScript and enable type-aware lint rules. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+1. Clone the repository:
+
+   ```sh
+   git clone https://github.com/minhajzein/godlandit.git
+   cd your-repo
+   ```
+
+2. Install dependencies:
+   ```sh
+   npm install
+   # or
+   yarn install
+   ```
+
+## Usage
+
+### Development
+
+Run the development server:
+
+```sh
+npm run dev
+# or
+yarn dev
+```
+
+Open [http://localhost:5173](http://localhost:5173) to view the app in the browser.
+
+### Build
+
+Generate a production build:
+
+```sh
+npm run build
+# or
+yarn build
+```
+
+### Preview
+
+Preview the production build:
+
+```sh
+npm run preview
+# or
+yarn preview
+```
+
+## Project Structure
+
+```
+├── src
+│   ├── apis         # Base api Routes
+│   ├── components   # Reusable components
+│   ├── config       # Configurations
+│   ├── hooks        # Custom React hooks
+│   ├── redux        # React state management
+│   ├── routes       # Route Definitions
+│   ├── App.jsx      # Main app component
+│   ├── main.jsx     # Entry point
+|   └──index.css     #Main Stylesheet
+├── public           # Public assets
+├── package.json     # Project metadata and scripts
+└── vite.config.js   # Vite configuration
+```
+
+## Technologies Used
+
+- [React](https://reactjs.org/)
+- [Vite](https://vitejs.dev/)
+- [Tailwind CSS](https://tailwindcss.com/) (if used)
+- [React Router](https://reactrouter.com/) (if used)
+
+## Contributing
+
+Contributions are welcome! Feel free to submit issues and pull requests.
+
+## License
+
+This project is licensed under the [MIT License](LICENSE).
