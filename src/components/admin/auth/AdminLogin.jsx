@@ -1,22 +1,21 @@
 import { useState } from 'react'
 import { PiSpinnerGapLight } from 'react-icons/pi'
 import { Link, useNavigate } from 'react-router-dom'
-import { useLoginMutation } from '../../../redux/apiSlices/user/authApiSlice'
 import { useDispatch } from 'react-redux'
 import { toast } from 'react-toastify'
 import { useFormik } from 'formik'
 import * as Yup from 'yup'
 import { FaRegEye, FaRegEyeSlash } from 'react-icons/fa'
-import { setCredentials } from '../../../redux/slices/user/authSlice'
-import { setUserdata } from '../../../redux/slices/user/userSlice'
-import usePersist from '../../../hooks/usePersist'
+import { useAdminLoginMutation } from '../../../redux/apiSlices/admin/adminAuthApiSlice'
+import useAdminPersist from '../../../hooks/useAdminPersist'
+import { setAdminCredentials } from '../../../redux/slices/admin/adminAuthSlice'
 
-function Login() {
-	const [loginto, { isLoading }] = useLoginMutation()
+function AdminLogin() {
+	const [loginto, { isLoading }] = useAdminLoginMutation()
 
 	const [isShow, setIsShow] = useState(false)
 
-	const [persist, setPersist] = usePersist()
+	const [persist, setPersist] = useAdminPersist()
 	const handleToggle = () => setPersist(prev => !prev)
 
 	const dispatch = useDispatch()
@@ -32,25 +31,20 @@ function Login() {
 				.matches(/^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/, 'Email is not valid')
 				.email('Invalid Email Address')
 				.required(),
-			password: Yup.string()
-				.min(8, 'Password should be atleast 8 character')
-				.matches(
-					/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/,
-					'password should contain an uppercase,a lowercase, a number and a special character'
-				)
-				.required('Password is required'),
+			password: Yup.string().required('Password is required'),
 		}),
 
-		onSubmit: async user => {
+		onSubmit: async admin => {
 			try {
-				const { data } = await loginto(user)
-				if (data.success) {
-					toast.success('Welcome to GodLandit')
-					dispatch(setCredentials({ accessToken: data.accessToken }))
-					dispatch(setUserdata(data.user))
-					navigate('/')
+				const { data } = await loginto(admin)
+				if (data?.success) {
+					dispatch(setAdminCredentials(data.adminToken))
+					navigate('/admin')
 				} else {
-					toast.error(data.error_msg)
+					toast.error(data?.message, {
+						position: 'top-center',
+						theme: 'colored',
+					})
 				}
 			} catch (error) {
 				console.error(error)
@@ -82,10 +76,10 @@ function Login() {
 				<div className='mx-5 bg-blue-950 border dark:border-b-white/50 dark:border-t-white/50 border-b-white/20 sm:border-t-white/20 shadow-2xl shadow-slate-500/10 dark:shadow-white/70 rounded-lg border-white/20 border-l-white/20 border-r-white/20 sm:shadow-sm lg:rounded-xl lg:shadow-none'>
 					<div className='flex flex-col p-6'>
 						<h3 className='text-xl font-semibold leading-6 tracking-tighter'>
-							Login
+							Admin Login
 						</h3>
 						<p className='mt-1.5 text-sm font-medium text-white/50'>
-							Welcome back! Enter your details and continue.
+							Hello Admin! Are you an Admin? Lets check.
 						</p>
 					</div>
 					<div className='p-6 pt-0 w-full'>
@@ -186,4 +180,4 @@ function Login() {
 	)
 }
 
-export default Login
+export default AdminLogin
