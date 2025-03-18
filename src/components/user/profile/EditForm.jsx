@@ -96,7 +96,7 @@ function EditForm({ user, isModalOpen, setIsModalOpen }) {
 
 	const handleVerifyOTP = async () => {
 		try {
-			const { data } = await verifyOTP({ otp })
+			const { data } = await verifyOTP({ otp, email: formik.values.email })
 			if (data.success) {
 				setEmailVerified(true)
 				toast.success(data.message)
