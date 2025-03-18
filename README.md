@@ -16,7 +16,7 @@ This project is a Vite-powered React application designed for fast development a
 
    ```sh
    git clone https://github.com/minhajzein/godlandit.git
-   cd your-repo
+   cd godlandit
    ```
 
 2. Install dependencies:
@@ -82,8 +82,8 @@ yarn preview
 
 - [React](https://reactjs.org/)
 - [Vite](https://vitejs.dev/)
-- [Tailwind CSS](https://tailwindcss.com/) (if used)
-- [React Router](https://reactrouter.com/) (if used)
+- [Tailwind CSS](https://tailwindcss.com/)
+- [React Router](https://reactrouter.com/)
 
 ## Contributing
 
