@@ -5,7 +5,6 @@ import Card from './Card'
 
 function Home() {
 	const { data, isLoading } = useGetDashboardQuery()
-	console.log(data)
 
 	return isLoading ? (
 		<Loading />

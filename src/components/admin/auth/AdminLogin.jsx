@@ -145,9 +145,6 @@ function AdminLogin() {
 									/>
 									<span className='text-xs'>Trust this device</span>
 								</label>
-								<Link className='text-xs underline' to='/reset-password'>
-									Forgot Password?
-								</Link>
 							</div>
 
 							<button
@@ -161,17 +158,6 @@ function AdminLogin() {
 									'Login'
 								)}
 							</button>
-							<div className='mt-4 flex items-center justify-between'>
-								<p className='text-sm font-medium text-foreground underline'>
-									Don't have an account?
-								</p>
-								<Link
-									className='inline-flex underline items-center justify-center rounded-md text-sm font-medium transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 hover:bg-accent hover:ring hover:ring-white h-10 px-4 py-2 duration-200'
-									to='/register'
-								>
-									Register
-								</Link>
-							</div>
 						</form>
 					</div>
 				</div>
